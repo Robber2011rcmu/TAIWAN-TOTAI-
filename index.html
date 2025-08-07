@@ -2,24 +2,51 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>填寫格式 - 品保AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LINE 通報格式複製</title>
   <style>
-    body { font-family: "微軟正黑體", sans-serif; padding: 20px; }
-    pre { background: #f0f0f0; padding: 10px; white-space: pre-wrap; }
+    body {
+      font-family: "微軟正黑體", sans-serif;
+      padding: 5vw;
+      background-color: #f9f9f9;
+      font-size: 5vw;
+      line-height: 1.6;
+    }
+    h2 {
+      font-size: 6vw;
+      color: #333;
+      margin-bottom: 4vw;
+    }
+    pre {
+      background: #eee;
+      padding: 4vw;
+      border-radius: 10px;
+      white-space: pre-wrap;
+      font-size: 5vw;
+    }
     button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
+      display: block;
+      width: 100%;
+      margin-top: 4vw;
+      padding: 5vw;
+      font-size: 5.5vw;
       border: none;
+      border-radius: 12px;
       background: #06c755;
       color: white;
       cursor: pointer;
-      border-radius: 5px;
+    }
+    #copyMsg {
+      color: green;
+      margin-top: 3vw;
+      font-size: 4vw;
     }
   </style>
 </head>
 <body>
-  <h2>📋 請長按以下文字複製後，點擊下方按鈕發送至 LINE</h2>
+
+  <h2>📋 點一下複製格式，再點下方傳送到 LINE</h2>
+
   <pre id="copyText">線別：
 客戶：
 品名：
@@ -28,6 +55,21 @@ Lot No：
 不良現象：
 備註：</pre>
 
-  <button onclick="window.location.href='line://ti/p/@376olcfg'">📨 傳送給 LINE 官方帳號</button>
+  <button onclick="copyToClipboard()">📋 一鍵複製格式內容</button>
+  <div id="copyMsg"></div>
+
+  <button onclick="window.location.href='line://ti/p/@你的LINE帳號ID'">📨 打開 LINE 回報</button>
+
+  <script>
+    function copyToClipboard() {
+      const text = document.getElementById("copyText").innerText;
+      navigator.clipboard.writeText(text).then(function() {
+        document.getElementById("copyMsg").innerText = "✅ 已複製到剪貼簿！";
+      }, function(err) {
+        document.getElementById("copyMsg").innerText = "⚠️ 複製失敗，請手動複製";
+      });
+    }
+  </script>
+
 </body>
 </html>
