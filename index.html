@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>填寫格式 - 品保AI</title>
+  <style>
+    body { font-family: "微軟正黑體", sans-serif; padding: 20px; }
+    pre { background: #f0f0f0; padding: 10px; white-space: pre-wrap; }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background: #06c755;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>📋 請長按以下文字複製後，點擊下方按鈕發送至 LINE</h2>
+  <pre id="copyText">線別：
+客戶：
+品名：
+Lot No：
+不良數量：
+不良現象：
+備註：</pre>
+
+  <button onclick="window.location.href='line://ti/p/@376olcfg'">📨 傳送給 LINE 官方帳號</button>
+</body>
+</html>
